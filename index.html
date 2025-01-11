@@ -12,5 +12,12 @@
 </html>
 
 <script>
-
+    for (let i = 0; i < 15; i++) {
+        for (let j = 0; j < 15; j++) {
+            let div = document.createElement("div");
+            let container = document.querySelector("#container");
+            div.style.padding = "8px";
+            container.appendChild(div);
+        }
+    }
 </script>
