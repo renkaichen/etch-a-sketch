@@ -17,6 +17,12 @@
             let div = document.createElement("div");
             let container = document.querySelector("#container");
             div.style.padding = "8px";
+            div.addEventListener('mouseover', () => {
+                div.classList.add("hovered");
+            })
+            div.addEventListener('mouseout', () => {
+                div.classList.remove("hovered");
+            })
             container.appendChild(div);
         }
     }

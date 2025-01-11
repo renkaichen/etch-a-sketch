@@ -3,3 +3,7 @@
     width: 256px;
     flex-wrap: wrap;
 }
+
+.hovered {
+    background-color: lightblue;
+}
