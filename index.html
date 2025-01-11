@@ -6,24 +6,45 @@
         <title>Etch-a-sketch</title>
     </head>
     <body>
+        <button id="sizeButton">Change Canvas Size</button>
         <div id="container"></div>
     </body>
 
 </html>
 
 <script>
-    for (let i = 0; i < 15; i++) {
-        for (let j = 0; j < 15; j++) {
-            let div = document.createElement("div");
-            let container = document.querySelector("#container");
-            div.style.padding = "8px";
-            div.addEventListener('mouseover', () => {
-                div.classList.add("hovered");
-            })
-            div.addEventListener('mouseout', () => {
-                div.classList.remove("hovered");
-            })
-            container.appendChild(div);
+    function generateCanvas(size) {
+        for (let i = 0; i < size; i++) {
+            for (let j = 0; j < size; j++) {
+                let div = document.createElement("div");
+                let container = document.querySelector("#container");
+                let paddingSize = 480 / size;
+                div.style.padding = `${paddingSize}px`;
+                div.addEventListener('mouseover', () => {
+                    div.classList.add("hovered");
+                })
+                div.addEventListener('mouseout', () => {
+                    div.classList.remove("hovered");
+                })
+                container.appendChild(div);
         }
     }
+    }
+    
+    let sizeButton = document.querySelector("#sizeButton");
+    sizeButton.addEventListener('click', () => {
+        let canvasSize = 101;
+        while (canvasSize > 100 || canvasSize < 1) {
+            canvasSize = prompt("Enter a canvas size from 1 to 100 squares");
+        }
+        deleteCanvas();
+        generateCanvas(canvasSize);
+    })
+
+    function deleteCanvas() {
+        const canvas = document.querySelector("#container");
+        canvas.textContent = "";
+    }
+
+    generateCanvas(16);
 </script>
